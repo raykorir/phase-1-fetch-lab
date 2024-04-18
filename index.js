@@ -15,3 +15,14 @@ function renderBooks(books) {
 document.addEventListener('DOMContentLoaded', function() {
   fetchBooks();
 });
+function fetchBooks() {
+  // Make a fetch request to the Game of Thrones API
+  return fetch("https://anapioficeandfire.com/api/books")
+    // Convert the response to JSON
+    .then((resp) => resp.json())
+    // Call renderBooks() with the JSON-ified data
+    .then((json) => renderBooks(json));
+}
+document.addEventListener("DOMContentLoaded", function () {
+  fetchBooks();
+});
